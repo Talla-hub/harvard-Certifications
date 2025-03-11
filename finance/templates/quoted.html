@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+
+<ul>
+    {%for key,val in symbols.items()%}
+    <h2> <li>{{key}} : {{val}}</li> </h2>
+    {%endfor%}
+</ul>
+
+{% endblock %}

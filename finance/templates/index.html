@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Bought
+{% endblock %}
+
+{% block main %}
+<div class="header">
+    <h1>Bought !!!</h1>
+</div>
+<div class="section">
+
+    <h2>All Stocks</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Prise</th>
+                <th>ToTal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for purchase in purchases%}
+            <tr>
+                <td>{{purchase["symbol"]}}</td>
+                <td>{{purchase["quantity"]}}</td>
+                <td>${{purchase["price"]}}</td>
+                <td>${{purchase["total_price"]}}</td>
+            </tr>
+            {%endfor%}
+
+
+            <!-- TODO: Loop through the database entries to display them in this table -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="font-weight: bold;">Cash</td>
+                <td>${{cash}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="font-weight: bold;">TOTAL</td>
+                <td>${{TOTAL}}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+{% endblock %}

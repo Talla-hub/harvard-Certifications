@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate ratio of people to sheep in the new zealand</h3>
+                <button data-answer="6 people per 1 sheep">6 peopla per 1 sheep</button>
+                <button data-answer="3 people per 1 sheep">3 peopla per 1 sheep</button>
+                <button data-answer="1 person per sheep">1 person per sheep</button>
+                <button data-answer="1 person per 3 sheep">1 person per 3 sheep</button>
+                <button data-answer="1 person per 6 sheep">1 person per 6 sheep</button>
+
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>in which country is it illegal to own only one guinea pig,as a lone guinea pig might get lonely?</h3>
+                <h4 class="incorrect-response"></h4>
+                <input class="input-answer" type="text" placeholeder="Your answer">
+                <input class="valid-response" type="submit" placeholeder="Your answer" value="Check Answer">
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('button').forEach(answer=>{
+                answer.addEventListener('click',()=>{
+                    console.log(typeof answer,typeof "1 person per 6 sheep" )
+                    if(answer.getAttribute('data-answer')=="1 person per 6 sheep"){
+                        answer.style.backgroundColor="green";
+                        answer.innerHTML="Correct";
+
+                    }else{answer.style.backgroundColor="red";
+                    answer.innerHTML="Incorrect";
+                    }
+
+                })
+            })
+            // TODO: Add code to check answers to questions
+            const answer=document.querySelector('.input-answer');
+
+            document.querySelector('.valid-response').addEventListener('click',()=>{
+                if (answer.value=='Switzerland'){
+                    answer.style.backgroundColor = 'lightgreen';
+                    document.querySelector('.incorrect-response').innerHTML='Correct';
+                }else if(answer.value.length>4 && answer.value!=='Switzerland') {
+                    answer.style.backgroundColor='red';
+                    document.querySelector('.incorrect-response').innerHTML='Incorrect';
+                }
+            })
+
+        </script>
+    </body>
+</html>
